@@ -107,7 +107,7 @@ export function makeStyles(params) {
       alignItems: 'center',
       justifyContent: 'center',
       width: 50*scaler,
-      height: 40*scaler,
+      height: 77*scaler,
       backgroundColor: 'rgba(0,0,0,0.0)'
     },
 
