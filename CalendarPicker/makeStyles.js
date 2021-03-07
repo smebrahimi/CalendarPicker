@@ -106,13 +106,14 @@ export function makeStyles(params) {
 
     dayWrapper: {
       alignItems: 'center',
-      justifyContent: 'center',
-      width: 50*scaler,
+      justifyContent: 'flex-start',
+      width: 48*scaler,
       height: 77*scaler,
       backgroundColor: 'rgba(0,0,0,0.0)',
       borderRightWidth: 1,
       borderBottomWidth: 1,
-      borderColor: GREY_LIGHT
+      borderColor: GREY_LIGHT,
+      paddingTop: 2
     },
 
     startDayWrapper: {
