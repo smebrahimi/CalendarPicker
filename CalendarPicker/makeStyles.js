@@ -110,7 +110,8 @@ export function makeStyles(params) {
       width: 50*scaler,
       height: 77*scaler,
       backgroundColor: 'rgba(0,0,0,0.0)',
-      borderWidth: 1,
+      borderRightWidth: 1,
+      borderBottomWidth: 1,
       borderColor: GREY_LIGHT
     },
 
