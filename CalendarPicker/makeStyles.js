@@ -7,6 +7,7 @@
 const DEFAULT_SELECTED_BACKGROUND_COLOR = '#5ce600';
 const DEFAULT_SELECTED_TEXT_COLOR = '#000000';
 const DEFAULT_TODAY_BACKGROUND_COLOR = '#CCCCCC';
+const GREY_LIGHT = '#BFBFBF';
 
 function getBorderRadiusByShape(scaler, dayShape) {
   if (dayShape === 'square') {
@@ -108,7 +109,9 @@ export function makeStyles(params) {
       justifyContent: 'center',
       width: 50*scaler,
       height: 77*scaler,
-      backgroundColor: 'rgba(0,0,0,0.0)'
+      backgroundColor: 'rgba(0,0,0,0.0)',
+      borderWidth: 1,
+      borderColor: GREY_LIGHT
     },
 
     startDayWrapper: {
