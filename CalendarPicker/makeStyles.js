@@ -86,8 +86,9 @@ export function makeStyles(params) {
     dayLabels: {
       width: 50*scaler,
       fontSize: 12*scaler,
-      color: '#000',
-      textAlign: 'center'
+      textAlign: 'center',
+      color: '#616161',
+      fontSize: 17
     },
 
     dayEmpty: {
