@@ -73,7 +73,14 @@ export function makeStyles(params) {
 
     daysWrapper: {
       alignSelf: 'center',
-      justifyContent: 'center'
+      justifyContent: 'center',
+      shadowOffset: { width: 0, height: 3 },
+      shadowColor: 'black',
+      shadowOpacity: 0.16,
+      elevation: 20,
+      shadowRadius: 20,
+      backgroundColor : "#fff",
+      marginTop: 14*scaler
     },
 
     dayLabels: {
@@ -81,6 +88,10 @@ export function makeStyles(params) {
       fontSize: 12*scaler,
       color: '#000',
       textAlign: 'center'
+    },
+
+    dayEmpty: {
+      backgroundColor: '#EFEFEF'
     },
 
     selectedDay: {
