@@ -219,7 +219,7 @@ export default function Day(props) {
       custom.textStyle = null;
     }
     return (
-      <View style={[styles.dayWrapper, custom.containerStyle]}>
+      <View style={[styles.dayWrapper, custom.containerStyle, styles.dayEmpty]}>
         <View style={[styles.dayButton, custom.style]}>
           <Text style={[textStyle, styles.disabledText, disabledDatesTextStyle, custom.textStyle]}>
             { day }
