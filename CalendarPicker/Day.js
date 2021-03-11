@@ -209,7 +209,7 @@ export default function Day(props) {
             </Text>
           </TouchableOpacity>
           <View>
-            { props.selectedDatesIcon && (<View>{ props.selectedDatesIcon }</View>) }
+            { selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }
           </View>
         </View>
       );
