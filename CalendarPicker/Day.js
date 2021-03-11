@@ -112,6 +112,10 @@ export default function Day(props) {
     selectedStartDate
     && selectedEndDate
     && thisDay.isBetween(selectedStartDate, selectedEndDate,'day','[]');
+  let isThisDayBeforeSelected = false
+  if(selectedDates) {
+    isThisDayBeforeSelected = selectedDates.some(date => thisDay.isSame(date, 'day'))
+  }
 
   // If date is in range let's apply styles
   if (!dateOutOfRange || isThisDaySameAsSelectedStart || isThisDaySameAsSelectedEnd || isThisDateInSelectedRange) {
@@ -209,7 +213,7 @@ export default function Day(props) {
             </Text>
           </TouchableOpacity>
           <View>
-            { selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }
+            { isThisDayBeforeSelected && selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }
           </View>
         </View>
       );
@@ -229,6 +233,9 @@ export default function Day(props) {
           <Text style={[textStyle, styles.disabledText, disabledDatesTextStyle, custom.textStyle]}>
             { day }
           </Text>
+        </View>
+        <View>
+          { isThisDayBeforeSelected && selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }
         </View>
       </View>
     );

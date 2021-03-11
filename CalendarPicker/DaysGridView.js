@@ -159,6 +159,8 @@ export default class DaysGridView extends Component {
           disabledDates={() => true}
           disabledDatesTextStyle={this.props.disabledDatesTextStyle}
           textStyle={this.props.textStyle}
+          selectedDates={this.props.selectedDates}
+          selectedDatesIcon={this.props.selectedDatesIcon}
         />
       )
     });
