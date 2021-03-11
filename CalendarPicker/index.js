@@ -392,6 +392,8 @@ export default class CalendarPicker extends Component {
       selectedRangeStyle: this.props.selectedRangeStyle,
       selectedRangeEndStyle: this.props.selectedRangeEndStyle,
       customDatesStyles: this.props.customDatesStyles,
+      selectedDates: this.props.selectedDates,
+      selectedDatesIcon: this.props.selectedDatesIcon,
     };
   }
 

@@ -35,7 +35,9 @@ export default function Day(props) {
     disabledDatesTextStyle,
     minRangeDuration,
     maxRangeDuration,
-    enableDateChange
+    enableDateChange,
+    selectedDates,
+    selectedDatesIcon,
   } = props;
 
   const thisDay = moment({year, month, day, hour: 12 });
@@ -206,6 +208,9 @@ export default function Day(props) {
               { day }
             </Text>
           </TouchableOpacity>
+          <View>
+            { props.selectedDatesIcon && (<View>{ props.selectedDatesIcon }</View>) }
+          </View>
         </View>
       );
     }
