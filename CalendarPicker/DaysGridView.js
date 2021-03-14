@@ -161,6 +161,8 @@ export default class DaysGridView extends Component {
           textStyle={this.props.textStyle}
           selectedDates={this.props.selectedDates}
           selectedDatesIcon={this.props.selectedDatesIcon}
+          rangeSelectedDates={this.props.rangeSelectedDates}
+          rangeSelectedDatesIcon={this.props.rangeSelectedDatesIcon}
         />
       )
     });
