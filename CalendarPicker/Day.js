@@ -260,7 +260,7 @@ export default function Day(props) {
             </Text>
           </TouchableOpacity>
           <View
-            style={[computedRangeSelectedDayStyle, selectedDayStyle ]}
+            style={[computedRangeSelectedDayStyle, selectedDayStyle, {flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}  ]}
           >
             { isThisDaySameAsSelectedStart && rangeSelectedDatesIcon && (<View>{ rangeSelectedDatesIcon }</View>) }
             { isThisDaySameAsSelectedStart && isThisDayTitle && (<Text>{ isThisDayTitle }</Text>) }
