@@ -48,6 +48,7 @@ export default function Day(props) {
   let dateOutOfRange;
   let computedSelectedDayStyle = styles.dayButton; // may be overridden depending on state
   let computedRangeSelectedDayStyle = {};
+  let containerSelectedDayStyle = {};
   let selectedDayTextStyle = {};
   let selectedDayStyle;
   let overrideOutOfRangeTextStyle;
@@ -120,26 +121,27 @@ export default function Day(props) {
   isThisDaySameAsSelectedStart = false
   isThisDaySameAsSelectedEnd = false
   isThisDateInSelectedRange = false
-  isThisDayBeforeSelected = false
+  let isThisDayBeforeSelected = false
   if(selectedDates) {
     isThisDayBeforeSelected = selectedDates.some(date => thisDay.isSame(date, 'day'))
   }
 
-  if(rangeSelectedDates) {
-    rangeSelectedDates.map(item => {
+  if (rangeSelectedDates) {
+    for(const item of rangeSelectedDates) {
       isThisDaySameAsSelectedStart = thisDay.isSame(item.startDate, 'day');
       isThisDaySameAsSelectedEnd = thisDay.isSame(item.endDate, 'day');
       isThisDateInSelectedRange =
         item.startDate
         && item.endDate
         && thisDay.isBetween(item.startDate, item.endDate,'day','[]');
-      isThisDayTitle = item.title
 
       if(isThisDaySameAsSelectedStart || isThisDaySameAsSelectedEnd || isThisDateInSelectedRange) {
+        isThisDayTitle = item.title
         // Apply style for start date
         if (isThisDaySameAsSelectedStart) {
-          computedRangeSelectedDayStyle = [styles.startDayWrapper, selectedRangeStyle, selectedRangeStartStyle];
+          computedRangeSelectedDayStyle = [styles.startDayWrapper, selectedRangeStyle, selectedRangeStartStyle, styles.rangeSelectedStyle];
           selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle, selectedRangeStartTextStyle];
+          containerSelectedDayStyle = {zIndex: 3};
         }
         // Apply style for end date
         if (isThisDaySameAsSelectedEnd) {
@@ -159,9 +161,9 @@ export default function Day(props) {
           computedRangeSelectedDayStyle = [styles.inRangeDay, selectedRangeStyle];
           selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle];
         }
+        break;
       }
-    })
-
+    }
   }
 
   // If date is in range let's apply styles
@@ -255,15 +257,15 @@ export default function Day(props) {
             disabled={!enableDateChange}
             style={[custom.style, computedSelectedDayStyle, selectedDayStyle ]}
             onPress={() => onPressDay({year, month, day}) }>
-            <Text style={[styles.dayLabel, textStyle, custom.textStyle, selectedDayTextStyle]}>
+            <Text style={[styles.dayLabel, textStyle, custom.textStyle]}>
               { day }
             </Text>
           </TouchableOpacity>
           <View
-            style={[computedRangeSelectedDayStyle, selectedDayStyle, {flexDirection: 'row', alignItems: 'center', justifyContent: 'flex-start'}  ]}
+            style={[computedRangeSelectedDayStyle, selectedDayStyle]}
           >
-            { isThisDaySameAsSelectedStart && rangeSelectedDatesIcon && (<View>{ rangeSelectedDatesIcon }</View>) }
-            { isThisDaySameAsSelectedStart && isThisDayTitle && (<Text>{ isThisDayTitle }</Text>) }
+            { isThisDaySameAsSelectedStart && rangeSelectedDatesIcon && (<View style={{marginRight: 8}}>{ rangeSelectedDatesIcon }</View>) }
+            { isThisDaySameAsSelectedStart && isThisDayTitle && (<Text style={[styles.rangeDatesSelectedTitleStyle]}>{ isThisDayTitle }</Text>) }
           </View>
           <View>
             { isThisDayBeforeSelected && selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }

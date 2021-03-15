@@ -289,5 +289,18 @@ export function makeStyles(params) {
       padding: 20*scaler,
     },
 
+    rangeDatesSelectedStyle: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    },
+
+    rangeDatesSelectedTitleStyle: {
+      fontSize: 15,
+      fontWeight: '700',
+      color: 'white',
+      width: 400,
+      whiteSpace: 'nowrap'
+    }
   };
 }
