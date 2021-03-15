@@ -139,7 +139,7 @@ export default function Day(props) {
         isThisDayTitle = item.title
         // Apply style for start date
         if (isThisDaySameAsSelectedStart) {
-          computedRangeSelectedDayStyle = [styles.startDayWrapper, selectedRangeStyle, selectedRangeStartStyle, styles.rangeSelectedStyle];
+          computedRangeSelectedDayStyle = [styles.startDayWrapper, selectedRangeStyle, selectedRangeStartStyle, styles.rangeDatesSelectedStyle];
           selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle, selectedRangeStartTextStyle];
           containerSelectedDayStyle = {zIndex: 3};
         }
