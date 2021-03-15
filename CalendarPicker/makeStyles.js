@@ -300,7 +300,6 @@ export function makeStyles(params) {
       fontWeight: '700',
       color: 'white',
       width: 400,
-      whiteSpace: 'nowrap'
     }
   };
 }
