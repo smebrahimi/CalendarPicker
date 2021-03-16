@@ -39,7 +39,7 @@ export default function Day(props) {
     selectedDates,
     selectedDatesIcon,
     rangeSelectedDates,
-    rangeSelectedDatesIcon,
+    rangeSelectedDatesIcon
   } = props;
 
   const thisDay = moment({year, month, day, hour: 12 });
@@ -140,13 +140,13 @@ export default function Day(props) {
         // Apply style for start date
         if (isThisDaySameAsSelectedStart) {
           computedRangeSelectedDayStyle = [styles.startDayWrapper, selectedRangeStyle, selectedRangeStartStyle, styles.rangeDatesSelectedStyle];
-          selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle, selectedRangeStartTextStyle];
+          selectedDayTextStyle = [propSelectedDayTextStyle, selectedRangeStartTextStyle];
           containerSelectedDayStyle = {zIndex: 3};
         }
         // Apply style for end date
         if (isThisDaySameAsSelectedEnd) {
           computedRangeSelectedDayStyle = [styles.endDayWrapper, selectedRangeStyle, selectedRangeEndStyle];
-          selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle, selectedRangeEndTextStyle];
+          selectedDayTextStyle = [propSelectedDayTextStyle, selectedRangeEndTextStyle];
         }
         // Apply style if start date is the same as end date
         if (isThisDaySameAsSelectedEnd &&
@@ -154,12 +154,12 @@ export default function Day(props) {
             item.endDate.isSame(item.startDate, 'day'))
         {
           computedRangeSelectedDayStyle = [styles.selectedDay, styles.selectedDayBackground, selectedRangeStyle];
-          selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle, selectedRangeStartTextStyle];
+          selectedDayTextStyle = [propSelectedDayTextStyle, selectedRangeStartTextStyle];
         }
         // Apply style for days inside of range, excluding start & end dates.
         if (thisDay.isBetween(item.startDate, item.endDate, 'day', '()')) {
           computedRangeSelectedDayStyle = [styles.inRangeDay, selectedRangeStyle];
-          selectedDayTextStyle = [styles.selectedDayLabel, propSelectedDayTextStyle];
+          selectedDayTextStyle = [propSelectedDayTextStyle];
         }
         break;
       }
@@ -177,7 +177,6 @@ export default function Day(props) {
     }
 
     const custom = getCustomDateStyle({customDatesStyles, date: thisDay});
-
     if (isToday && custom.style) {
       // Custom date style overrides 'today' style. It may be reset below
       // by date selection styling.
@@ -252,17 +251,17 @@ export default function Day(props) {
       );
     } else {
       return (
-        <View style={[styles.dayWrapper, custom.containerStyle]}>
+        <View style={[styles.dayWrapper, custom.containerStyle, containerSelectedDayStyle]}>
           <TouchableOpacity
             disabled={!enableDateChange}
             style={[custom.style, computedSelectedDayStyle, selectedDayStyle ]}
             onPress={() => onPressDay({year, month, day}) }>
-            <Text style={[styles.dayLabel, textStyle, custom.textStyle]}>
+            <Text style={[styles.dayLabel, textStyle, custom.textStyle, selectedDayTextStyle]}>
               { day }
             </Text>
           </TouchableOpacity>
           <View
-            style={[computedRangeSelectedDayStyle, selectedDayStyle]}
+            style={[custom.style, computedRangeSelectedDayStyle, selectedDayStyle ]}
           >
             { isThisDaySameAsSelectedStart && rangeSelectedDatesIcon && (<View style={{marginRight: 8}}>{ rangeSelectedDatesIcon }</View>) }
             { isThisDaySameAsSelectedStart && isThisDayTitle && (<Text style={[styles.rangeDatesSelectedTitleStyle]}>{ isThisDayTitle }</Text>) }
