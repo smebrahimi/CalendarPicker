@@ -48,6 +48,8 @@
   ],
   "directories": {},
   "dependencies": {
+    "babel-preset-react-native": "^4.0.1",
+    "expo": "^40.0.1",
     "node-git-hooks": "^1.0.1",
     "prop-types": "^15.6.0",
     "recyclerlistview": "^3.0.0"
