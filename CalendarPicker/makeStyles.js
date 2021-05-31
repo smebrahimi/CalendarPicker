@@ -129,7 +129,7 @@ export function makeStyles(params) {
     },
 
     startDayWrapper: {
-      width: 50*scaler,
+      width: 49*scaler,
       height: 30*scaler,
       borderTopLeftRadius: 20*scaler,
       borderBottomLeftRadius: 20*scaler,
@@ -139,7 +139,7 @@ export function makeStyles(params) {
     },
 
     endDayWrapper: {
-      width: 50*scaler,
+      width: 49*scaler,
       height: 30*scaler,
       borderTopRightRadius: 20*scaler,
       borderBottomRightRadius: 20*scaler,
@@ -149,7 +149,7 @@ export function makeStyles(params) {
     },
 
     inRangeDay: {
-      width: 50*scaler,
+      width: 49*scaler,
       height: 30*scaler,
       backgroundColor: SELECTED_BG_COLOR,
       alignSelf: 'center',
