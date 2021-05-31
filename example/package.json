@@ -14,10 +14,11 @@
     "preset": "react-native"
   },
   "dependencies": {
-    "expo": "~36.0.0",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "expo": "~37.0.0",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-36.0.0.tar.gz",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-37.0.0.tar.gz",
     "react-native-calendar-picker": "file:../",
     "react-native-web": "~0.11.7",
     "recyclerlistview": "^3.0.0"
