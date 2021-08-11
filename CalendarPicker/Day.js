@@ -288,9 +288,9 @@ export default function Day(props) {
             { day }
           </Text>
         </View>
-        <View>
+        {/* <View>
           { isThisDayBeforeSelected && selectedDatesIcon && (<View>{ selectedDatesIcon }</View>) }
-        </View>
+        </View> */}
       </View>
     );
   }
