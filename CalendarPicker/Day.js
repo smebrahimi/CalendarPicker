@@ -134,6 +134,7 @@ export default function Day(props) {
         item.startDate
         && item.endDate
         && thisDay.isBetween(item.startDate, item.endDate,'day','[]');
+      const thisEndDate = moment(item.endDate);
 
       if(isThisDaySameAsSelectedStart || isThisDaySameAsSelectedEnd || isThisDateInSelectedRange) {
         isThisDayTitle = item.title
@@ -151,7 +152,7 @@ export default function Day(props) {
         // Apply style if start date is the same as end date
         if (isThisDaySameAsSelectedEnd &&
             isThisDaySameAsSelectedStart &&
-            item.endDate.isSame(item.startDate, 'day'))
+            thisEndDate.isSame(item.startDate, 'day'))
         {
           computedRangeSelectedDayStyle = [styles.selectedDay, styles.selectedDayBackground, selectedRangeStyle];
           selectedDayTextStyle = [propSelectedDayTextStyle, selectedRangeStartTextStyle];

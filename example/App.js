@@ -123,20 +123,32 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <CalendarPicker
-          scrollable
-          selectedStartDate={selectedStartDate}
-          selectedEndDate={selectedEndDate}
-          onDateChange={this.onDateChange}
-          initialDate={minDate}
-          customDatesStyles={customDatesStyles}
-          customDayHeaderStyles={this.customDayHeaderStylesCallback}
-          minDate={minDate}
-          maxDate={maxDate}
-          allowRangeSelection={enableRangeSelect}
-          allowBackwardRangeSelect={enableRangeSelect}
-          minRangeDuration={minRangeDuration && parseInt(minRangeDuration)}
-          maxRangeDuration={maxRangeDuration && parseInt(maxRangeDuration)}
-          headerWrapperStyle={styles.headerWrapperStyle}
+          startFromMonday={true}
+          weekdays={['Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So']}
+          months={['Januar', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember']}
+          selectedDayStyle={{backgroundColor: 'green', color: 'white'}}
+          selectedDayColor={'white'}
+          selectedDayTextColor={'white'}
+          todayBackgroundColor={'white'}
+          dayLabelsWrapper={{borderBottomWidth: 0, borderTopWidth: 0}}
+          todayTextStyle={{ color: 'white'}}
+          showDayStragglers={true}
+          selectedDates={['2021-09-02', '2021-09-18']}
+          selectedDatesIcon={<Text width={24} height={21} style={{ color: 'green', marginTop: 15 }}>P</Text>}
+          rangeSelectedDates={[{
+            startDate: '2021-09-19',
+            endDate: '2021-09-25',
+            title: 'Griechenland'
+          },
+          {
+            startDate: '2021-09-30',
+            endDate: '2021-09-30',
+            title: 'Christmas'
+          }]}
+          rangeSelectedDatesIcon={<Text width={25} height={25} style={{ color: 'white' }}>D</Text> }
+          selectedRangeStyle={{backgroundColor: 'rgba(82, 44, 24, .5)', height: 38, marginTop: 4, paddingLeft: 14 }}
+          width={370}
+          height = {390}
         />
 
         <View style={styles.topSpacing}>
