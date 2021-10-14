@@ -84,10 +84,12 @@ export function makeStyles(params) {
     },
 
     dayLabels: {
-      width: 50*scaler,
+      width: 48*scaler,
       fontSize: 17*scaler,
       textAlign: 'center',
       color: '#616161',
+      borderColor: 'transparent',
+      borderWidth: 1,
     },
 
     dayEmpty: {
